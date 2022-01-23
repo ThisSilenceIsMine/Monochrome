@@ -1,0 +1,23 @@
+{
+  "name": "@tsim/monochrome",
+  "version": "1.0.0",
+  "description": "Yet another CSS-in-JS library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThisSilenceIsMine/Monochrome.git"
+  },
+  "keywords": [
+    "CSS",
+    "styled"
+  ],
+  "author": "ThisSilenceIsMine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThisSilenceIsMine/Monochrome/issues"
+  },
+  "homepage": "https://github.com/ThisSilenceIsMine/Monochrome#readme"
+}
