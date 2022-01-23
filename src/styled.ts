@@ -2,32 +2,29 @@ import { css } from './css';
 
 let h: Function;
 
-export const setup = (factory: Function) => {
-  if (h) return;
-  h = factory;
-};
-
 interface BaseProps {
   as?: string;
   className?: string;
 }
 
-export const styled = <Props extends BaseProps>(
-  tag: keyof HTMLElementTagNameMap
-) =>
-  function (style: TemplateStringsArray) {
-    function Styled(props: Props) {
-      let _props = { ...props };
-      let _as = _props.as ?? tag;
-      const styleSheet = style.reduce((prev, curr) => prev + curr);
+export const setup = (factory: Function) => {
+  if (h) return;
+  h = factory;
+};
 
-      const className = css(styleSheet);
-      _props.className = className;
+export const styled =
+  <Props extends BaseProps>(tag: keyof HTMLElementTagNameMap) =>
+  (style: TemplateStringsArray) =>
+  (props: Props) => {
+    if (!h)
+      throw new Error(
+        'Factory not found. Please, specify it via setup() function'
+      );
+    const _props = { ...props };
+    const styleSheet = style.reduce((prev, curr) => prev + curr);
 
-      return h(_as, _props);
-    }
+    _props.className = css(styleSheet);
 
-    return Styled;
+    let _as = _props.as ?? tag;
+    return h(_as, _props);
   };
-
-const el = document.createElement('div');
