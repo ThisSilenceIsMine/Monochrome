@@ -1,11 +1,7 @@
 import { css } from './css';
-
+import { compile } from './core/compile';
+import type { Props, Interpolation } from './lib/types';
 let h: Function;
-
-interface BaseProps {
-  as?: string;
-  className?: string;
-}
 
 export const setup = (factory: Function) => {
   if (h) return;
@@ -13,15 +9,15 @@ export const setup = (factory: Function) => {
 };
 
 export const styled =
-  <Props extends BaseProps>(tag: keyof HTMLElementTagNameMap) =>
-  (style: TemplateStringsArray) =>
-  (props: Props) => {
+  <UserProps>(tag: keyof HTMLElementTagNameMap) =>
+  (style: TemplateStringsArray, ...expressions: Interpolation<UserProps>[]) =>
+  (props: Props<UserProps>) => {
     if (!h)
       throw new Error(
         'Factory not found. Please, specify it via setup() function'
       );
     const _props = { ...props };
-    const styleSheet = style.reduce((prev, curr) => prev + curr);
+    const styleSheet = compile<UserProps>(style, expressions, _props);
 
     _props.className = css(styleSheet);
 
