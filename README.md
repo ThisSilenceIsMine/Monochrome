@@ -5,7 +5,7 @@ Lighweight, framework-agnostic, easy to use.
 
 TODO:
 - [x] Minimal functionality (css, styled)
-- [ ] Props
+- [x] Props
 - [ ] Tag functions (alternative to passing strings)
 - [ ] Derived styles / restyling existing components
 - [ ] Theming
