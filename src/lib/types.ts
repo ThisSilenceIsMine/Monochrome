@@ -1,3 +1,4 @@
+import domElements from './domElements';
 interface BaseProps {
   className?: string;
   as?: string;
@@ -7,3 +8,5 @@ interface BaseProps {
 export type Props<T> = T & BaseProps;
 
 export type Interpolation<T> = ((props: Props<T>) => string) | string;
+
+export type HTMLTag = typeof domElements[number];

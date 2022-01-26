@@ -11,6 +11,7 @@ TODO:
 - [ ] Theming
 - [ ] Global styles
 - [ ] Preprocessor support
+- [ ] Better types
 - [ ] Documentation
 - [ ] Logo (?)
 - [ ] Breakpoints / media api (?)
