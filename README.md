@@ -7,7 +7,7 @@ TODO:
 - [x] Minimal functionality (css, styled)
 - [x] Props
 - [x] Tag functions (alternative to passing strings)
-- [ ] Derived styles / restyling existing components
+- [?] Derived styles / restyling existing components (DONE but using any)
 - [ ] Theming
 - [ ] Global styles
 - [ ] Preprocessor support
