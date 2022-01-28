@@ -1,13 +1,15 @@
 import { css } from './css';
 import { compile } from './core/compile';
-import type { Props, Interpolation, HTMLTag } from './lib/types';
 import domElements from './lib/domElements';
+import type { Props, Interpolation, HTMLTag, Theme, ThemeProvider, CreateElement } from './lib/types';
 
-let h: Function;
+let h: CreateElement;
+let useTheme: ThemeProvider;
 
-export const setup = (factory: Function) => {
+export const setup = (factory: CreateElement, useTheme?: ThemeProvider) => {
   if (h) return;
   h = factory;
+  if(useTheme) useTheme = useTheme;
 };
 
 export const baseStyled =
